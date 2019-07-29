@@ -3,8 +3,8 @@ grammar Expr;
 prog : stat+ EOF;
 
 stat
-    : expr NEWLINE*                 # printExpr
-    | KEY EQ expr NEWLINE           # assign
+    : expr SEMICOLON                # printExpr
+    | KEY EQ expr SEMICOLON         # assign
     ;
 
 expr
@@ -21,6 +21,7 @@ number
     : SUB? INT
     ;
 
+SEMICOLON : ';' ;
 EQ : '=' ;
 MUL : '*' ;
 DIV : '/' ;
@@ -28,5 +29,4 @@ ADD : '+' ;
 SUB : '-' ;
 KEY : [a-zA-Z]+ ;
 INT : [0-9]+ ;
-NEWLINE:'\r'? '\n' ;
-WS : [ \t]+ -> skip;
+WS : [ \t\r\n]+ -> skip;
