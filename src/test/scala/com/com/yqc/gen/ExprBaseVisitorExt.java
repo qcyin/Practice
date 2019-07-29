@@ -10,7 +10,12 @@ public class ExprBaseVisitorExt extends ExprBaseVisitor<Double> {
 
     @Override
     public Double visitProg(ExprParser.ProgContext ctx) {
-        return ctx.getChild(0).accept(this);
+        Double rs = null;
+        int c = ctx.getChildCount();
+        for(int i=0;i<c-1;i++){ //pass EOF
+            rs = ctx.getChild(i).accept(this);
+        }
+        return rs;
     }
 
     @Override
