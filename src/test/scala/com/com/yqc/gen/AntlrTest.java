@@ -7,6 +7,9 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 public class AntlrTest {
     public static void main(String[] args) {
+
+        //https://www.cnblogs.com/sld666666/p/6145854.html
+
         String script = "1 + 2 + 3 * 4+ 6 / 2";
 
         script = "a=123-1\n" + //122
