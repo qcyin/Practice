@@ -8,7 +8,7 @@ public class ExprBaseVisitorExt extends ExprBaseVisitor<Integer> {
 
     @Override
     public Integer visitPrintExpr(ExprParser.PrintExprContext ctx) {
-        return super.visitPrintExpr(ctx);
+        return ctx.getChild(0).accept(this);
     }
 
     @Override
@@ -28,12 +28,14 @@ public class ExprBaseVisitorExt extends ExprBaseVisitor<Integer> {
 
     @Override
     public Integer visitSub(ExprParser.SubContext ctx) {
-        return super.visitSub(ctx);
+        Integer l = ctx.getChild(0).accept(this);
+        Integer r = ctx.getChild(2).accept(this);
+        return l-r;
     }
 
     @Override
     public Integer visitParens(ExprParser.ParensContext ctx) {
-        return super.visitParens(ctx);
+        return ctx.getChild(1).accept(this);
     }
 
     @Override
