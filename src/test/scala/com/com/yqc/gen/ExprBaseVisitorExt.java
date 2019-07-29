@@ -77,6 +77,6 @@ public class ExprBaseVisitorExt extends ExprBaseVisitor<Double> {
 
     @Override
     public Double visitNumber(ExprParser.NumberContext ctx) {
-        return Double.valueOf(ctx.INT().getText());
+        return Double.valueOf(ctx.getText());
     }
 }
