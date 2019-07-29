@@ -4,7 +4,7 @@ prog : stat+ EOF;
 
 stat
     : expr NEWLINE*                 # printExpr
-    | KEY EQ expr NEWLINE            # assign
+    | KEY EQ expr NEWLINE           # assign
     ;
 
 expr
@@ -13,7 +13,7 @@ expr
     | left=expr ADD right=expr      # add
     | left=expr SUB right=expr      # sub
     | number                        # num
-    | KEY                            # key
+    | KEY                           # key
     | '(' expr ')'                  # parens
     ;
 
