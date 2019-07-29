@@ -17,11 +17,6 @@ public class ExprBaseVisitorExt extends ExprBaseVisitor<Integer> {
     }
 
     @Override
-    public Integer visitBlank(ExprParser.BlankContext ctx) {
-        return super.visitBlank(ctx);
-    }
-
-    @Override
     public Integer visitDiv(ExprParser.DivContext ctx) {
         return super.visitDiv(ctx);
     }
