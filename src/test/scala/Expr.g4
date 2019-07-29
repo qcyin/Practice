@@ -3,9 +3,8 @@ grammar Expr;
 prog : stat+;
 
 stat
-    : expr NEWLINE          # printExpr
+    : expr NEWLINE*          # printExpr
     | ID EQ expr NEWLINE    # assign
-    | NEWLINE               # blank
     ;
 
 expr
