@@ -18,7 +18,7 @@ public class ExprParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, EQ=3, MUL=4, DIV=5, ADD=6, SUB=7, KEY=8, INT=9, NEWLINE=10, 
-		WS=11, ID=12;
+		WS=11;
 	public static final int
 		RULE_prog = 0, RULE_stat = 1, RULE_expr = 2, RULE_number = 3;
 	private static String[] makeRuleNames() {
@@ -37,7 +37,7 @@ public class ExprParser extends Parser {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, null, null, "EQ", "MUL", "DIV", "ADD", "SUB", "KEY", "INT", "NEWLINE", 
-			"WS", "ID"
+			"WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -138,7 +138,7 @@ public class ExprParser extends Parser {
 				setState(11); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << SUB) | (1L << KEY) | (1L << INT) | (1L << ID))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << SUB) | (1L << KEY) | (1L << INT))) != 0) );
 			setState(13);
 			match(EOF);
 			}
@@ -189,7 +189,7 @@ public class ExprParser extends Parser {
 		}
 	}
 	public static class AssignContext extends StatContext {
-		public TerminalNode ID() { return getToken(ExprParser.ID, 0); }
+		public TerminalNode KEY() { return getToken(ExprParser.KEY, 0); }
 		public TerminalNode EQ() { return getToken(ExprParser.EQ, 0); }
 		public ExprContext expr() {
 			return getRuleContext(ExprContext.class,0);
@@ -218,11 +218,8 @@ public class ExprParser extends Parser {
 		try {
 			setState(27);
 			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case T__0:
-			case SUB:
-			case KEY:
-			case INT:
+			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
+			case 1:
 				_localctx = new PrintExprContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
@@ -244,12 +241,12 @@ public class ExprParser extends Parser {
 				}
 				}
 				break;
-			case ID:
+			case 2:
 				_localctx = new AssignContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(22);
-				match(ID);
+				match(KEY);
 				setState(23);
 				match(EQ);
 				setState(24);
@@ -258,8 +255,6 @@ public class ExprParser extends Parser {
 				match(NEWLINE);
 				}
 				break;
-			default:
-				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -654,7 +649,7 @@ public class ExprParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\16?\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\r?\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\3\2\6\2\f\n\2\r\2\16\2\r\3\2\3\2\3\3\3\3\7\3\24\n\3"+
 		"\f\3\16\3\27\13\3\3\3\3\3\3\3\3\3\3\3\5\3\36\n\3\3\4\3\4\3\4\3\4\3\4\3"+
 		"\4\3\4\5\4\'\n\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\7\4\65"+
@@ -662,7 +657,7 @@ public class ExprParser extends Parser {
 		"\13\3\2\2\2\4\35\3\2\2\2\6&\3\2\2\2\b:\3\2\2\2\n\f\5\4\3\2\13\n\3\2\2"+
 		"\2\f\r\3\2\2\2\r\13\3\2\2\2\r\16\3\2\2\2\16\17\3\2\2\2\17\20\7\2\2\3\20"+
 		"\3\3\2\2\2\21\25\5\6\4\2\22\24\7\f\2\2\23\22\3\2\2\2\24\27\3\2\2\2\25"+
-		"\23\3\2\2\2\25\26\3\2\2\2\26\36\3\2\2\2\27\25\3\2\2\2\30\31\7\16\2\2\31"+
+		"\23\3\2\2\2\25\26\3\2\2\2\26\36\3\2\2\2\27\25\3\2\2\2\30\31\7\n\2\2\31"+
 		"\32\7\5\2\2\32\33\5\6\4\2\33\34\7\f\2\2\34\36\3\2\2\2\35\21\3\2\2\2\35"+
 		"\30\3\2\2\2\36\5\3\2\2\2\37 \b\4\1\2 \'\5\b\5\2!\'\7\n\2\2\"#\7\3\2\2"+
 		"#$\5\6\4\2$%\7\4\2\2%\'\3\2\2\2&\37\3\2\2\2&!\3\2\2\2&\"\3\2\2\2\'\66"+

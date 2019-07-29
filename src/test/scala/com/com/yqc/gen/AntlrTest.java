@@ -9,7 +9,10 @@ public class AntlrTest {
     public static void main(String[] args) {
         String script = "1 + 2 + 3 * 4+ 6 / 2";
 
-        script = "123-1";
+        script = "a=123-1\n" +
+                "b=a+3\n" +
+                "c=a*b\n" +
+                "c+4-6\n";
 
 
 
