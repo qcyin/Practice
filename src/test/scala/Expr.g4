@@ -4,7 +4,7 @@ prog : stat+;
 
 stat
     : expr NEWLINE          # printExpr
-    | ID '=' expr NEWLINE   # assign
+    | ID EQ expr NEWLINE   # assign
     | NEWLINE               # blank
     ;
 
@@ -22,6 +22,7 @@ number
     : INT
     ;
 
+EQ : '=' ;
 MUL : '*' ;
 DIV : '/' ;
 ADD : '+' ;
