@@ -9,7 +9,7 @@ public class AntlrTest {
     public static void main(String[] args) {
         String script = "1 + 2 + 3 * 4+ 6 / 2";
 
-        script = "123";
+        script = "1-123\n";
 
 
 
@@ -19,9 +19,9 @@ public class AntlrTest {
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
         ExprParser parser = new ExprParser(tokenStream);
         parser.setErrorHandler(new BailErrorStrategy());
-        ParseTree parseTree = parser.number();
+        ParseTree parseTree = parser.prog();
         ExprBaseVisitorExt visitor = new ExprBaseVisitorExt();
         Object rtn = visitor.visit(parseTree);
-        System.out.println("#result#"+rtn);
+        System.out.println(rtn);
     }
 }

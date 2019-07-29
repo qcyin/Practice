@@ -1,7 +1,6 @@
 package com.com.yqc.gen;
 
 public class ExprBaseVisitorExt extends ExprBaseVisitor<Integer> {
-
     @Override
     public Integer visitProg(ExprParser.ProgContext ctx) {
         return super.visitProg(ctx);
@@ -48,19 +47,17 @@ public class ExprBaseVisitorExt extends ExprBaseVisitor<Integer> {
     }
 
     @Override
-    public Integer visitId(ExprParser.IdContext ctx) {
-        return super.visitId(ctx);
+    public Integer visitNum(ExprParser.NumContext ctx) {
+        return super.visitNum(ctx);
     }
 
     @Override
-    public Integer visitInt(ExprParser.IntContext ctx) {
-        System.out.println(ctx.getText());
-        return Integer.valueOf(ctx.getText());
+    public Integer visitKey(ExprParser.KeyContext ctx) {
+        return super.visitKey(ctx);
     }
 
     @Override
     public Integer visitNumber(ExprParser.NumberContext ctx) {
-        System.out.println("visitNumber");
-        return ctx.getChild(0).accept(this);
+        return Integer.valueOf(ctx.getText());
     }
 }
