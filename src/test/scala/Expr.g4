@@ -1,20 +1,20 @@
 grammar Expr;
 
-prog : stat+;
+prog : stat+ EOF;
 
 stat
-    : expr NEWLINE*         # printExpr
-    | ID EQ expr NEWLINE    # assign
+    : expr NEWLINE*                 # printExpr
+    | ID EQ expr NEWLINE            # assign
     ;
 
 expr
-    : expr MUL expr         # mul
-    | expr DIV expr         # div
-    | expr ADD expr         # add
-    | expr SUB expr         # sub
-    | number                # num
-    | ID                    # key
-    | '(' expr ')'          # parens
+    : left=expr MUL right=expr      # mul
+    | left=expr DIV right=expr      # div
+    | left=expr ADD right=expr      # add
+    | left=expr SUB right=expr      # sub
+    | number                        # num
+    | KEY                            # key
+    | '(' expr ')'                  # parens
     ;
 
 number
@@ -26,7 +26,7 @@ MUL : '*' ;
 DIV : '/' ;
 ADD : '+' ;
 SUB : '-' ;
-ID : [a-zA-Z]+ ;
+KEY : [a-zA-Z]+ ;
 INT : [0-9]+ ;
 NEWLINE:'\r'? '\n' ;
 WS : [ \t]+ -> skip;

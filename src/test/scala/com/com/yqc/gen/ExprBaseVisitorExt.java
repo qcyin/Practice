@@ -1,60 +1,77 @@
 package com.com.yqc.gen;
 
-public class ExprBaseVisitorExt extends ExprBaseVisitor<Integer> {
-    @Override
-    public Integer visitProg(ExprParser.ProgContext ctx) {
-        return super.visitProg(ctx);
-    }
+import java.util.HashMap;
+import java.util.Map;
+
+public class ExprBaseVisitorExt extends ExprBaseVisitor<Double> {
+
+    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+    private Map<String,Double> memory = new HashMap<>();
 
     @Override
-    public Integer visitPrintExpr(ExprParser.PrintExprContext ctx) {
+    public Double visitProg(ExprParser.ProgContext ctx) {
         return ctx.getChild(0).accept(this);
     }
 
     @Override
-    public Integer visitAssign(ExprParser.AssignContext ctx) {
-        return super.visitAssign(ctx);
+    public Double visitPrintExpr(ExprParser.PrintExprContext ctx) {
+        return ctx.getChild(0).accept(this);
     }
 
     @Override
-    public Integer visitDiv(ExprParser.DivContext ctx) {
-        return super.visitDiv(ctx);
+    public Double visitAssign(ExprParser.AssignContext ctx) {
+        String key = ctx.ID().getText();
+        Double value = visit(ctx.expr());
+        memory.put(key, value);
+        return value;
     }
 
     @Override
-    public Integer visitAdd(ExprParser.AddContext ctx) {
-        return super.visitAdd(ctx);
+    public Double visitDiv(ExprParser.DivContext ctx) {
+        Double l = visit(ctx.left);
+        Double r = visit(ctx.right);
+        return l/r;
     }
 
     @Override
-    public Integer visitSub(ExprParser.SubContext ctx) {
-        Integer l = ctx.getChild(0).accept(this);
-        Integer r = ctx.getChild(2).accept(this);
+    public Double visitAdd(ExprParser.AddContext ctx) {
+        Double l = visit(ctx.left);
+        Double r = visit(ctx.right);
+        return l+r;
+    }
+
+    @Override
+    public Double visitSub(ExprParser.SubContext ctx) {
+        Double l = visit(ctx.left);
+        Double r = visit(ctx.right);
         return l-r;
     }
 
     @Override
-    public Integer visitParens(ExprParser.ParensContext ctx) {
-        return ctx.getChild(1).accept(this);
+    public Double visitParens(ExprParser.ParensContext ctx) {
+        return visit(ctx.expr());
     }
 
     @Override
-    public Integer visitMul(ExprParser.MulContext ctx) {
-        return super.visitMul(ctx);
+    public Double visitMul(ExprParser.MulContext ctx) {
+        Double l = visit(ctx.left);
+        Double r = visit(ctx.right);
+        return l*r;
     }
 
     @Override
-    public Integer visitNum(ExprParser.NumContext ctx) {
-        return super.visitNum(ctx);
+    public Double visitNum(ExprParser.NumContext ctx) {
+        return visit(ctx.number());
     }
 
     @Override
-    public Integer visitKey(ExprParser.KeyContext ctx) {
-        return super.visitKey(ctx);
+    public Double visitKey(ExprParser.KeyContext ctx) {
+        String key = ctx.KEY().getText();
+        return memory.getOrDefault(key,0.0);
     }
 
     @Override
-    public Integer visitNumber(ExprParser.NumberContext ctx) {
-        return Integer.valueOf(ctx.getText());
+    public Double visitNumber(ExprParser.NumberContext ctx) {
+        return Double.valueOf(ctx.INT().getText());
     }
 }

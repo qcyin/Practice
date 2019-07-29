@@ -5,10 +5,11 @@ MUL=4
 DIV=5
 ADD=6
 SUB=7
-ID=8
+KEY=8
 INT=9
 NEWLINE=10
 WS=11
+ID=12
 '('=1
 ')'=2
 '='=3
