@@ -1,4 +1,4 @@
-package com.syscom.utils
+package com.com.utils
 
 object testScala {
 

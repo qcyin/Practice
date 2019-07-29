@@ -1,4 +1,4 @@
-package com.syscom.utils;
+package com.com.utils;
 
 import java.io.IOException;
 import java.io.InputStream;

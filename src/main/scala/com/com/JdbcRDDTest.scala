@@ -1,6 +1,6 @@
-package com.syscom
+package com.com
 
-import com.syscom.utils.DBUtil
+import com.com.utils.DBUtil
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.rdd.JdbcRDD
 import org.apache.spark.{SparkConf, SparkContext}

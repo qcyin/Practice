@@ -1,4 +1,4 @@
-package com.syscom.yqc.gen;
+package com.com.yqc.gen;
 
 import org.antlr.v4.runtime.BailErrorStrategy;
 import org.antlr.v4.runtime.CharStreams;

@@ -1,5 +1,5 @@
 // Generated from F:/IDEA_WorkSpace/spark/src/test/scala\Expr.g4 by ANTLR 4.7.2
-package com.syscom.yqc.gen;
+package com.com.yqc.gen;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
