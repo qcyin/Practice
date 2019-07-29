@@ -20,7 +20,7 @@ public class ExprBaseVisitorExt extends ExprBaseVisitor<Double> {
 
     @Override
     public Double visitAssign(ExprParser.AssignContext ctx) {
-        String key = ctx.ID().getText();
+        String key = ctx.KEY().getText();
         Double value = visit(ctx.expr());
         memory.put(key, value);
         return value;
