@@ -4,7 +4,7 @@ prog : stat+;
 
 stat
     : expr NEWLINE          # printExpr
-    | ID EQ expr NEWLINE   # assign
+    | ID EQ expr NEWLINE    # assign
     | NEWLINE               # blank
     ;
 
