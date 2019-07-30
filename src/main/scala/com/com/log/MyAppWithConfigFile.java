@@ -10,6 +10,8 @@ import ch.qos.logback.core.util.StatusPrinter;
 
 public class MyAppWithConfigFile {
 
+	//https://liuzidong.iteye.com/blog/776061
+
 	public static void main(String[] args) {
 		Logger logger = LoggerFactory.getLogger(MyAppWithConfigFile.class);
 		LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
@@ -20,7 +22,7 @@ public class MyAppWithConfigFile {
 			configurator.setContext(lc);
 			// configurator.doConfigure("E:/testworkspace/SLF4J/src/chapters/architecture/sample-config-2.xml");
 			configurator.doConfigure(MyAppWithConfigFile.class
-					.getResourceAsStream("sample-config-3.xml"));
+					.getResourceAsStream("logback.xml"));
 		} catch (JoranException je) {
 			StatusPrinter.print(lc.getStatusManager());
 		}
