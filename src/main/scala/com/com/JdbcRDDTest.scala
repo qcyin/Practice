@@ -1,13 +1,12 @@
 package com.com
 
 import com.com.utils.DBUtil
-import org.apache.log4j.{Level, Logger}
+//import org.apache.log4j.{Level, Logger}
 import org.apache.spark.rdd.JdbcRDD
 import org.apache.spark.{SparkConf, SparkContext}
 
 object JdbcRDDTest {
 
-//  Logger.getLogger("org").setLevel(Level.WARN)
 
   def main(args: Array[String]): Unit = {
 
