@@ -10,6 +10,8 @@ import ch.qos.logback.core.util.StatusPrinter;
 
 public class MyAppWithConfigFile {
 
+	//https://www.slf4j.org/log4j-over-slf4j.html
+	//https://github.com/qos-ch/slf4j
 	//https://liuzidong.iteye.com/blog/776061
 
 	public static void main(String[] args) {
