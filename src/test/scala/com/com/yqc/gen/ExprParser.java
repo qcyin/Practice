@@ -263,25 +263,6 @@ public class ExprParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class BasesContext extends ExprContext {
-		public NumberContext number() {
-			return getRuleContext(NumberContext.class,0);
-		}
-		public BasesContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ExprListener ) ((ExprListener)listener).enterBases(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ExprListener ) ((ExprListener)listener).exitBases(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ExprVisitor ) return ((ExprVisitor<? extends T>)visitor).visitBases(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 	public static class DivContext extends ExprContext {
 		public ExprContext left;
 		public ExprContext right;
@@ -418,6 +399,25 @@ public class ExprParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class BaseContext extends ExprContext {
+		public NumberContext number() {
+			return getRuleContext(NumberContext.class,0);
+		}
+		public BaseContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof ExprListener ) ((ExprListener)listener).enterBase(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof ExprListener ) ((ExprListener)listener).exitBase(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ExprVisitor ) return ((ExprVisitor<? extends T>)visitor).visitBase(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 
 	public final ExprContext expr() throws RecognitionException {
 		return expr(0);
@@ -440,7 +440,7 @@ public class ExprParser extends Parser {
 			case SUB:
 			case INT:
 				{
-				_localctx = new BasesContext(_localctx);
+				_localctx = new BaseContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 

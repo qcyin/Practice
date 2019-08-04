@@ -31,13 +31,6 @@ public interface ExprVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAssign(ExprParser.AssignContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code bases}
-	 * labeled alternative in {@link ExprParser#expr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBases(ExprParser.BasesContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code div}
 	 * labeled alternative in {@link ExprParser#expr}.
 	 * @param ctx the parse tree
@@ -79,6 +72,13 @@ public interface ExprVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitKey(ExprParser.KeyContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code base}
+	 * labeled alternative in {@link ExprParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBase(ExprParser.BaseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ExprParser#number}.
 	 * @param ctx the parse tree

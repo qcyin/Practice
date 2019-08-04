@@ -42,18 +42,6 @@ public interface ExprListener extends ParseTreeListener {
 	 */
 	void exitAssign(ExprParser.AssignContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code bases}
-	 * labeled alternative in {@link ExprParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void enterBases(ExprParser.BasesContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code bases}
-	 * labeled alternative in {@link ExprParser#expr}.
-	 * @param ctx the parse tree
-	 */
-	void exitBases(ExprParser.BasesContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code div}
 	 * labeled alternative in {@link ExprParser#expr}.
 	 * @param ctx the parse tree
@@ -125,6 +113,18 @@ public interface ExprListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitKey(ExprParser.KeyContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code base}
+	 * labeled alternative in {@link ExprParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterBase(ExprParser.BaseContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code base}
+	 * labeled alternative in {@link ExprParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitBase(ExprParser.BaseContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ExprParser#number}.
 	 * @param ctx the parse tree

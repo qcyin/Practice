@@ -52,18 +52,6 @@ public class ExprBaseListener implements ExprListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBases(ExprParser.BasesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBases(ExprParser.BasesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterDiv(ExprParser.DivContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -131,6 +119,18 @@ public class ExprBaseListener implements ExprListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitKey(ExprParser.KeyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBase(ExprParser.BaseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBase(ExprParser.BaseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
