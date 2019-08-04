@@ -12,7 +12,7 @@ expr
     | left=expr DIV right=expr      # div
     | left=expr ADD right=expr      # add
     | left=expr SUB right=expr      # sub
-    | number                        # num
+    | number                        # base
     | KEY                           # key
     | '(' expr ')'                  # parens
     ;
@@ -27,6 +27,6 @@ MUL : '*' ;
 DIV : '/' ;
 ADD : '+' ;
 SUB : '-' ;
-KEY : [a-zA-Z]+ ;
+KEY : [a-zA-Z0-9]+ ;
 INT : [0-9]+ ;
 WS : [ \t\r\n]+ -> skip;
