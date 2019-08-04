@@ -27,6 +27,6 @@ MUL : '*' ;
 DIV : '/' ;
 ADD : '+' ;
 SUB : '-' ;
-KEY : [a-zA-Z0-9]+ ;
+KEY : [a-zA-Z]+ ;
 INT : [0-9]+ ;
 WS : [ \t\r\n]+ -> skip;
