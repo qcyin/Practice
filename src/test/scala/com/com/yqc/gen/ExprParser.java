@@ -263,6 +263,25 @@ public class ExprParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
+	public static class BasesContext extends ExprContext {
+		public NumberContext number() {
+			return getRuleContext(NumberContext.class,0);
+		}
+		public BasesContext(ExprContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof ExprListener ) ((ExprListener)listener).enterBases(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof ExprListener ) ((ExprListener)listener).exitBases(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ExprVisitor ) return ((ExprVisitor<? extends T>)visitor).visitBases(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 	public static class DivContext extends ExprContext {
 		public ExprContext left;
 		public ExprContext right;
@@ -382,25 +401,6 @@ public class ExprParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class NumContext extends ExprContext {
-		public NumberContext number() {
-			return getRuleContext(NumberContext.class,0);
-		}
-		public NumContext(ExprContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ExprListener ) ((ExprListener)listener).enterNum(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ExprListener ) ((ExprListener)listener).exitNum(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ExprVisitor ) return ((ExprVisitor<? extends T>)visitor).visitNum(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 	public static class KeyContext extends ExprContext {
 		public TerminalNode KEY() { return getToken(ExprParser.KEY, 0); }
 		public KeyContext(ExprContext ctx) { copyFrom(ctx); }
@@ -440,7 +440,7 @@ public class ExprParser extends Parser {
 			case SUB:
 			case INT:
 				{
-				_localctx = new NumContext(_localctx);
+				_localctx = new BasesContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
