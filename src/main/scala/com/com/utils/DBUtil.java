@@ -27,9 +27,9 @@ public class DBUtil {
 				.getResourceAsStream("db.properties");
 		try {
 			cfg.load(inStream);
-			driverClassName=cfg.getProperty("jdbc.className");
+			driverClassName=cfg.getProperty("jdbc.driver");
 			url=cfg.getProperty("jdbc.url");
-			userName=cfg.getProperty("jdbc.user");
+			userName=cfg.getProperty("jdbc.username");
 			password=cfg.getProperty("jdbc.password");
 			initialSize=Integer.parseInt(cfg.getProperty("InitialSize"));
 			maxActive=Integer.parseInt(cfg.getProperty("MaxActive"));

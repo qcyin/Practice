@@ -16,6 +16,7 @@ public class MybatisTest {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession session = sqlSessionFactory.openSession();
         Orders orders = session.selectOne("com.com.bean.Orders.getOrdersById", 1);
-
+        System.out.println(orders);
     }
 }
+
