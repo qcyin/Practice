@@ -3,6 +3,7 @@ package com.com.nio;
 import org.junit.Test;
 
 import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
 
 /**
  * capacity:容量，表示缓冲区中最大存储数据的容量。一旦声明不能更改
@@ -19,6 +20,7 @@ import java.nio.ByteBuffer;
  *
  */
 public class TestBuffer {
+
 
     @Test
     public void test2(){
